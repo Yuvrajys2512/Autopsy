@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Environments
+.venv/
+.env
+
+# uv
+# (uv.lock is committed intentionally)
+
+# Autopsy local trace store
+.autopsy/
+
+# Local tooling / assistant config — keep out of the public repo
+.claude/
+CLAUDE.md
+
+# Private planning doc (remove this line if you want it published)
+agent-eval-toolkit-brief.md
+
+# OS
+.DS_Store
+Thumbs.db
