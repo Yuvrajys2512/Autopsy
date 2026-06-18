@@ -23,6 +23,9 @@ CLAUDE.md
 # Private planning doc (remove this line if you want it published)
 agent-eval-toolkit-brief.md
 
+# Personal learning notes — kept local, not part of the shipped library
+documentation/
+
 # OS
 .DS_Store
 Thumbs.db

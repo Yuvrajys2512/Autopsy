@@ -6,6 +6,16 @@ Phase 0 (Capture) public API: open a run, record spans, save a structured trace.
 from __future__ import annotations
 
 from .clients import wrap_anthropic, wrap_openai
+from .eval import (
+    AnthropicJudge,
+    EvalReport,
+    EvalResult,
+    Evaluator,
+    Expectations,
+    Judge,
+    default_evaluators,
+    evaluate,
+)
 from .pricing import compute_cost, get_pricing
 from .schema import (
     ErrorInfo,
@@ -16,6 +26,7 @@ from .schema import (
     TokenUsage,
     Trace,
 )
+from .taxonomy import FailureLabel
 from .storage import (
     JSONStorage,
     TraceStore,
@@ -45,6 +56,16 @@ __all__ = [
     "SpanStatus",
     "TokenUsage",
     "ErrorInfo",
+    "FailureLabel",
+    # evaluation
+    "evaluate",
+    "default_evaluators",
+    "EvalReport",
+    "EvalResult",
+    "Expectations",
+    "Evaluator",
+    "Judge",
+    "AnthropicJudge",
     # instrumentation
     "start_run",
     "span",

@@ -5,14 +5,14 @@
 Autopsy is a lightweight, framework-agnostic Python library for evaluating and diagnosing LLM agents. Most eval tools score the *output* ("is this answer good?"). Autopsy looks at the *trajectory* — did the agent pick the right tool, hallucinate tool arguments, recover from an error, loop, or blow its step budget — and is being built toward **automatic failure classification**: handing you *why it broke*, with evidence, instead of a lonely number.
 
 This is an early, in-progress build.
-let
+
 ## Status
 
 | Phase | What | State |
 |---|---|---|
-| **0 — Capture** | Trace/Span schema, instrumentation, client wrappers, local persistence | ✅ in progress |
-| 1 — Evaluators | rule-based + LLM-as-judge metrics | ⏳ |
-| 2 — Failure classifier | the differentiator | ⏳ |
+| **0 — Capture** | Trace/Span schema, instrumentation, client wrappers, local persistence | ✅ done |
+| **1 — Evaluators** | rule-based + LLM-as-judge metrics | ✅ done |
+| 2 — Failure classifier | the differentiator | ⏳ next |
 | 3 — Datasets, batch runs & dashboard | Streamlit dashboard | ⏳ |
 | 4 — Regression diff, polish & ship | PyPI, docs | ⏳ |
 
@@ -72,3 +72,34 @@ print(trace.latency_ms, trace.total_tokens, trace.total_cost_usd)
 for span in trace.spans:
     print(span.kind, span.name, span.latency_ms, span.status)
 ```
+
+## Evaluate a trace
+
+`evaluate(trace)` scores the *trajectory*, not just the answer — and tells you what kind of failure it was, with evidence. Rule-based metrics (tool selection, argument validity, efficiency/loops, error recovery, resource budgets) run with no API calls. Pass a `judge` to add LLM-as-judge metrics (goal completion, faithfulness/grounding).
+
+```python
+from autopsy import evaluate, Expectations
+
+report = evaluate(
+    trace,
+    expected=Expectations(
+        allowed_tools=["search", "fetch"],
+        expected_tools=["search", "fetch"],
+        max_steps=3,
+    ),
+)
+
+print(report.render())
+print(report.overall_score, report.passed, report.failure_labels)
+# e.g. failure_labels -> ['redundant_calls', 'budget_exceeded']
+```
+
+Add model-graded metrics by supplying a judge (bring your own, or use the built-in Anthropic one):
+
+```python
+from autopsy import evaluate, AnthropicJudge
+
+report = evaluate(trace, judge=AnthropicJudge())  # adds goal_completion + faithfulness
+```
+
+A `Judge` is any object with a `score(*, system, prompt, schema) -> dict` method, so you can plug in any provider or a local model.
