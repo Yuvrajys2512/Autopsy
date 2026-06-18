@@ -1,6 +1,8 @@
 """Autopsy — agent evaluation & failure-diagnosis toolkit.
 
-Phase 0 (Capture) public API: open a run, record spans, save a structured trace.
+Phase 0 (Capture): trace capture, @trace decorator, client wrappers.
+Phase 1 (Evaluators): rule metrics + LLM-as-judge, EvalReport.
+Phase 2 (Failure Classifier): hybrid LLM + rules to diagnose root cause.
 """
 
 from __future__ import annotations
@@ -12,7 +14,11 @@ from .eval import (
     EvalResult,
     Evaluator,
     Expectations,
+    FailureClassification,
+    FailureClassifier,
     Judge,
+    LLMFailureClassifier,
+    RuleBasedFailureClassifier,
     default_evaluators,
     evaluate,
 )
@@ -66,6 +72,11 @@ __all__ = [
     "Evaluator",
     "Judge",
     "AnthropicJudge",
+    # classifier
+    "FailureClassification",
+    "FailureClassifier",
+    "LLMFailureClassifier",
+    "RuleBasedFailureClassifier",
     # instrumentation
     "start_run",
     "span",

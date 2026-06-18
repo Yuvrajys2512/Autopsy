@@ -1,12 +1,19 @@
-"""Autopsy evaluation layer (Phase 1).
+"""Autopsy evaluation layer (Phase 1 & 2).
 
 Rule-based and LLM-as-judge metrics over a captured trace, aggregated into a
-structured report by `evaluate`.
+structured report by `evaluate` (Phase 1). Failure classification synthesizes
+the report into a root-cause diagnosis with evidence (Phase 2).
 """
 
 from __future__ import annotations
 
 from .base import Evaluator
+from .classifier import (
+    FailureClassification,
+    FailureClassifier,
+    LLMFailureClassifier,
+    RuleBasedFailureClassifier,
+)
 from .judge import AnthropicJudge, Judge, judgement_schema
 from .llm_metrics import Faithfulness, GoalCompletion, LLMJudgeEvaluator
 from .models import EvalReport, EvalResult, Expectations
@@ -41,4 +48,9 @@ __all__ = [
     "LLMJudgeEvaluator",
     "GoalCompletion",
     "Faithfulness",
+    # classifier (Phase 2)
+    "FailureClassification",
+    "FailureClassifier",
+    "LLMFailureClassifier",
+    "RuleBasedFailureClassifier",
 ]
