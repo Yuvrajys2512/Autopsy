@@ -209,6 +209,8 @@ Runnable end-to-end demos live in [`examples/`](examples/) — each works with a
 | `classify_failure.py` | Root-cause diagnosis with evidence (Phase 2) |
 | `batch_run.py` | Dataset + batch run + aggregation (Phase 3) |
 | `compare_runs.py` / `track_trends.py` | Regression diff & trend tracking (Phase 4) |
+| `build_dogfood_dataset.py` | Build the multi-hop QA golden dataset (Phase 5) |
+| `dogfood_smolagents.py` | Run Autopsy on a smolagents agent — failure breakdown (Phase 5) |
 
 ## Documentation
 

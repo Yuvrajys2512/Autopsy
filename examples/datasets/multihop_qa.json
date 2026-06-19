@@ -1,0 +1,488 @@
+{
+  "name": "multihop_qa",
+  "version": "1.0.0",
+  "description": "Multi-hop factual QA for dogfooding a tool-using agent. Each question bridges two facts, requiring search (and often a page visit) to answer.",
+  "source": "hand-authored, HotpotQA-style; answers chosen to be stable over time",
+  "cases": [
+    {
+      "input": "The actor who played Iron Man in the Marvel Cinematic Universe was born in what city?",
+      "expected_output": "Manhattan, New York City",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "What is the nationality of the director of the film that won the Academy Award for Best Picture in 2020?",
+      "expected_output": "South Korean",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The author of 'A Brief History of Time' held a university professorship previously held by which 17th-century scientist?",
+      "expected_output": "Isaac Newton",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "What is the capital of the country where the 2016 Summer Olympics were held?",
+      "expected_output": "Brasilia",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The company that created the iPhone has its headquarters in which city?",
+      "expected_output": "Cupertino",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "Who was the U.S. president when the first person walked on the Moon?",
+      "expected_output": "Richard Nixon",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The river that flows through Paris empties into which body of water?",
+      "expected_output": "English Channel",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "What language is primarily spoken in the country that borders both France and Slovenia?",
+      "expected_output": "Italian",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The scientist who developed the theory of general relativity was awarded the Nobel Prize in Physics for which phenomenon?",
+      "expected_output": "the photoelectric effect",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "What currency is used in the country whose capital hosted the 1900 Summer Olympics?",
+      "expected_output": "Euro",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The 'Mona Lisa' is displayed in a museum located in which country?",
+      "expected_output": "France",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "Who wrote the novel that inspired the film 'Blade Runner'?",
+      "expected_output": "Philip K. Dick",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "What is the capital of the country off whose coast the Great Barrier Reef lies?",
+      "expected_output": "Canberra",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The physicist who formulated the three laws of motion was born in which century?",
+      "expected_output": "17th century",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "Curium is named after a scientist who was born in which city?",
+      "expected_output": "Warsaw",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The director of 'Inception' also directed a Batman trilogy starring which actor as Batman?",
+      "expected_output": "Christian Bale",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "What is the official language of the country where the headquarters of the United Nations is located?",
+      "expected_output": "English",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The composer of the symphony that includes 'Ode to Joy' was from which country?",
+      "expected_output": "Germany",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "What is the currency of the country where the world's tallest building is located?",
+      "expected_output": "United Arab Emirates dirham",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The co-founder of Microsoft who served as its first CEO attended which university before dropping out?",
+      "expected_output": "Harvard University",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The country that won the 2014 FIFA World Cup is located on which continent?",
+      "expected_output": "Europe",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "What is the largest moon of the largest planet in our solar system?",
+      "expected_output": "Ganymede",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The painter of 'The Starry Night' was born in which country?",
+      "expected_output": "Netherlands",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    },
+    {
+      "input": "The actor who voiced Woody in 'Toy Story' also starred in a film about a man stranded on a desert island; what is that film's name?",
+      "expected_output": "Cast Away",
+      "expected_tools": [
+        "web_search"
+      ],
+      "allowed_tools": [
+        "web_search",
+        "visit_webpage",
+        "final_answer"
+      ],
+      "tool_schemas": null,
+      "max_steps": 8,
+      "max_cost_usd": null,
+      "max_latency_ms": null,
+      "metadata": {
+        "hops": 2,
+        "source": "HotpotQA-style multi-hop (hand-authored, stable facts)"
+      }
+    }
+  ]
+}

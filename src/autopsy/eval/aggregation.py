@@ -121,8 +121,11 @@ class BatchResultSet(BaseModel):
                 # Treat as failed for aggregation purposes
                 metrics.failed += 1
 
-            # Track failure causes.
-            if br.classification.root_cause:
+            # Track failure causes — only for cases that did NOT pass. A passing
+            # run still carries a classification (the classifier always returns
+            # one), so counting it here would pollute the distribution with the
+            # no-failure fallback label.
+            if br.report.passed is not True and br.classification.root_cause:
                 label = br.classification.root_cause
                 metrics.failure_distribution[label] = metrics.failure_distribution.get(label, 0) + 1
 

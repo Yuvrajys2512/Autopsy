@@ -314,6 +314,43 @@ def test_batch_result_set_from_batch_results():
     assert result_set.metrics.failure_distribution["infinite_loop"] == 1
 
 
+def test_failure_distribution_excludes_passing_cases():
+    """A passing case still carries a classification (the classifier always
+    returns one); it must not pollute the failure distribution."""
+    from autopsy.eval.models import EvalResult
+
+    # A passing case: a metric rendered a True verdict.
+    passing_report = EvalReport(
+        trace_id="t" * 32,
+        results=[EvalResult(name="m", kind="rule", score=1.0, passed=True)],
+    )
+    passing = BatchResult(
+        trace=mk_trace([mk_span("s", SpanKind.TOOL_CALL)]),
+        report=passing_report,
+        # the no-failure fallback the rule classifier returns for clean runs
+        classification=FailureClassification(root_cause="goal_not_completed", rationale=""),
+    )
+    # A failing case.
+    failing_report = EvalReport(
+        trace_id="u" * 32,
+        results=[EvalResult(name="m", kind="rule", score=0.0, passed=False,
+                            failure_label="redundant_calls")],
+    )
+    failing = BatchResult(
+        trace=mk_trace([mk_span("s", SpanKind.TOOL_CALL)]),
+        report=failing_report,
+        classification=FailureClassification(root_cause="redundant_calls", rationale=""),
+    )
+
+    rs = BatchResultSet.from_batch_results("test", "1.0.0", [passing, failing])
+
+    assert rs.metrics.passed == 1
+    assert rs.metrics.failed == 1
+    # Only the failing case contributes; the passing fallback label is absent.
+    assert rs.metrics.failure_distribution == {"redundant_calls": 1}
+    assert "goal_not_completed" not in rs.metrics.failure_distribution
+
+
 def test_aggregate_diagnoses():
     trace = mk_trace([mk_span("s", SpanKind.LLM_CALL)])
     report = EvalReport(trace_id=trace.trace_id, results=[])
