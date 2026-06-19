@@ -4,9 +4,24 @@ version = "0.0.1"
 description = "Capture an agent's full execution trace and tell you not just whether it failed, but how and why — at the trajectory level."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
-authors = [{ name = "Yuvraj Srivastava" }]
-keywords = ["agent", "evaluation", "observability", "tracing", "llm", "failure-analysis"]
+license = { file = "LICENSE" }
+authors = [{ name = "Yuvraj Srivastava", email = "yuvrajstark2512@gmail.com" }]
+keywords = ["agent", "evaluation", "observability", "tracing", "llm", "failure-analysis", "llm-as-judge", "agents"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Typing :: Typed",
+]
 dependencies = [
     "pydantic>=2.7",
 ]
@@ -14,10 +29,14 @@ dependencies = [
 [project.optional-dependencies]
 anthropic = ["anthropic>=0.40"]
 openai = ["openai>=1.40"]
-dev = ["pytest>=8", "anthropic>=0.40"]
+dashboard = ["streamlit>=1.30"]
+dev = ["pytest>=8", "anthropic>=0.40", "build>=1.2", "twine>=5"]
 
 [project.urls]
-Homepage = "https://github.com/yuvrajstark/autopsy"
+Homepage = "https://github.com/Yuvrajys2512/Autopsy"
+Repository = "https://github.com/Yuvrajys2512/Autopsy"
+Issues = "https://github.com/Yuvrajys2512/Autopsy/issues"
+Documentation = "https://github.com/Yuvrajys2512/Autopsy/tree/main/documentation"
 
 [build-system]
 requires = ["hatchling"]

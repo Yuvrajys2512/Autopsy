@@ -4,15 +4,22 @@ Phase 0 (Capture): trace capture, @trace decorator, client wrappers.
 Phase 1 (Evaluators): rule metrics + LLM-as-judge, EvalReport.
 Phase 2 (Failure Classifier): hybrid LLM + rules to diagnose root cause.
 Phase 3 (Datasets & Batch): labeled test cases, batch evaluation, dashboards.
+Phase 4 (Comparison & History): regression diffing and trend tracking.
 """
 
 from __future__ import annotations
 
 from .clients import wrap_anthropic, wrap_openai
 from .eval import (
+    AggregateMetrics,
     AnthropicJudge,
+    BatchCaseResult,
     BatchResult,
+    BatchResultSet,
+    BatchRunMetadata,
     BatchRunner,
+    CaseDiff,
+    ComparisonMetrics,
     Dataset,
     EvalReport,
     EvalResult,
@@ -20,11 +27,15 @@ from .eval import (
     Expectations,
     FailureClassification,
     FailureClassifier,
+    HistoryEntry,
     Judge,
     LLMFailureClassifier,
     RuleBasedFailureClassifier,
+    RunHistory,
     TestCase,
+    aggregate_diagnoses,
     batch_evaluate,
+    compare,
     default_evaluators,
     evaluate,
 )
@@ -89,6 +100,17 @@ __all__ = [
     "batch_evaluate",
     "BatchRunner",
     "BatchResult",
+    "BatchResultSet",
+    "BatchCaseResult",
+    "AggregateMetrics",
+    "aggregate_diagnoses",
+    # comparison & history (Phase 4)
+    "compare",
+    "ComparisonMetrics",
+    "CaseDiff",
+    "RunHistory",
+    "BatchRunMetadata",
+    "HistoryEntry",
     # instrumentation
     "start_run",
     "span",
