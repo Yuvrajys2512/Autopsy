@@ -20,10 +20,10 @@ Autopsy is a lightweight, framework-agnostic Python library for evaluating and d
 ## Install
 
 ```bash
-pip install autopsy            # core (pydantic only)
-pip install "autopsy[anthropic]"   # + Anthropic client wrapping & built-in judge
-pip install "autopsy[openai]"      # + OpenAI client wrapping
-pip install "autopsy[dashboard]"   # + Streamlit dashboard
+pip install agent-autopsy            # core (pydantic only)
+pip install "agent-autopsy[anthropic]"   # + Anthropic client wrapping & built-in judge
+pip install "agent-autopsy[openai]"      # + OpenAI client wrapping
+pip install "agent-autopsy[dashboard]"   # + Streamlit dashboard
 ```
 
 Development:
@@ -151,7 +151,7 @@ print(result_set.metrics.pass_rate)            # 0.78
 print(result_set.metrics.failure_distribution) # {'redundant_calls': 3, ...}
 ```
 
-Explore it visually with the Streamlit dashboard (`pip install "autopsy[dashboard]"`):
+Explore it visually with the Streamlit dashboard (`pip install "agent-autopsy[dashboard]"`):
 
 ```bash
 streamlit run src/autopsy/dashboard/app.py -- --mode single --data results.json
