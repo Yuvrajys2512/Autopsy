@@ -1,5 +1,5 @@
 [project]
-name = "autopsy"
+name = "agent-autopsy"
 version = "0.0.1"
 description = "Capture an agent's full execution trace and tell you not just whether it failed, but how and why — at the trajectory level."
 readme = "README.md"
